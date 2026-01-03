@@ -234,7 +234,7 @@ export const initPlayers = (): Player[] => {
     const players: Player[] = []
     const humanCount = Math.min(2, Math.max(0, settings.humanPlayers))
 
-    const botTypes: string[] = Array.isArray(settings.botTypes) ? settings.botTypes : []
+    const botTypes: string[] = S.is(S.Array(S.String))(settings.botTypes) ? settings.botTypes : []
     const totalPlayers = Math.min(4, humanCount + botTypes.length)
 
     const positions = [
